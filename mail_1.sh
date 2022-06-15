@@ -12,7 +12,7 @@ sudo apt-get upgrade -y
 sudo apt-get install apache2 -y
 
 #Descargamos script de creación de debconfs para la instalación de postfix
-sudo wget https://raw.githubusercontent.com/Drayo-git/CLOUD/main/Repte1/postfixconf.sh
+sudo wget https://raw.githubusercontent.com/SantiUF/M8MAILSERVER/postfixconf.sh
 sudo chmod 755 postfixconf.sh
 sudo sh postfixconf.sh
 
@@ -26,8 +26,8 @@ sudo postconf home_mailbox=Maildir/
 
 #Instalamos Dovecot
 sudo apt-get install dovecot-core dovecot-imapd dovecot-pop3d -y
-sudo wget https://raw.githubusercontent.com/Drayo-git/CLOUD/main/10-auth.conf
-sudo wget https://raw.githubusercontent.com/Drayo-git/CLOUD/main/10-mail.conf
+sudo wget https://raw.githubusercontent.com/SantiUF/M8MAILSERVER/10-auth.conf
+sudo wget https://raw.githubusercontent.com/SantiUF/M8MAILSERVER/10-mail.conf
 sudo cp 10-mail.conf /etc/dovecot/conf.d/10-mail.conf
 sudo cp 10-auth.conf /etc/dovecot/conf.d/10-auth.conf
 
@@ -48,7 +48,7 @@ wget https://github.com/roundcube/roundcubemail/releases/download/1.5.2/roundcub
 tar -xvzf roundcubemail-1.5.2-complete.tar.gz
 mv roundcubemail-1.5.2 /var/www/roundcube
 chown -R www-data:www-data /var/www/roundcube/
-sudo wget https://raw.githubusercontent.com/Drayo-git/CLOUD/main/004-roundcube.conf
+sudo wget https://raw.githubusercontent.com/SantiUF/M8MAILSERVER/004-roundcube.conf
 sudo mv 004-roundcube.conf /etc/apache2/sites-available/004-roundcube.conf
 sudo a2dissite 000-default.conf
 sudo a2ensite 004-roundcube.conf
